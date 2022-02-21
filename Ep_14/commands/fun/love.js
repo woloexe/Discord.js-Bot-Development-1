@@ -9,7 +9,7 @@ module.exports = {
     usage: "[mention | id | username]",
     run: async (client, message, args) => {
         // Get a member from mention, id, or username
-        let person = getMember(message, args[0]);
+        let person = message.mentions.members.first();
 
         if (!person || message.author.id === person.id) {
             person = message.guild.members
